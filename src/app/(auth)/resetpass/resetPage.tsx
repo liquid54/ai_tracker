@@ -8,6 +8,7 @@ import CustomInput from "@/app/components/input";
 import Button from "@/app/components/button/Button";
 import Link from "next/link";
 import ArrowRight from "@/app/assets/icons/arrowRight";
+import i18n from "@/app/i18n";
 
 
 const ResetPage = () => {
@@ -24,8 +25,8 @@ const ResetPage = () => {
             <div className="flex flex-col items-center justify-center pt-[179px]">
                 <div className="w-full max-w-md">
                     <div className="mb-8">
-                        <h1 className="text-left">Відновлення паролю</h1>
-                        <p className="text-left">Введіть новий пароль</p>
+                        <h1 className="text-left">{i18n.t('resetPassword.title')}</h1>
+                        <p className="text-left">{i18n.t('resetPassword.subTitle')}</p>
                     </div>
 
                     <form className="pb-[77px] ">

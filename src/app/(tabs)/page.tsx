@@ -3,6 +3,7 @@ import Bin from "@/app/assets/icons/bin";
 import Button from "@/app/components/button/Button";
 import {ThemedText} from "@/app/components/ThemedText";
 import ScrollableContent from "../components/ScrolableContent";
+import i18n from "@/app/i18n";
 
 export default function HomePage() {
     const files = [
@@ -35,21 +36,21 @@ export default function HomePage() {
         <SplitLayout>
             <div className='pt-[49px] px-[51px] '>
                 <div className='flex flex-col items-center gap-y-4 w-full'>
-                    <ThemedText type='heading'>Завантаження файлу</ThemedText>
+                    <ThemedText type='heading'>{i18n.t('mainPage.downloadFile')}</ThemedText>
                     <div className='flex gap-x-5 justify-between items-center'>
-                        <ThemedText type='text-medium-grey' className='border-1 '>Завантажити файл</ThemedText>
-                        <ThemedText type='text'>Файл не вибрано</ThemedText>
+                        <ThemedText type='text-medium-grey' className='border-1 '>{i18n.t('mainPage.upload')}</ThemedText>
+                        <ThemedText type='text'>{i18n.t('mainPage.fileNotSelected')}</ThemedText>
                     </div>
                     <Button>
                         <div>
-                            <ThemedText type='text-medium-white'>ОБРОБИТИ</ThemedText>
+                            <ThemedText type='text-medium-white'>{i18n.t('mainPage.process')}</ThemedText>
                         </div>
                     </Button>
                 </div>
 
                 <div className='pt-[113px] w-full'>
                     <div className='flex justify-center'>
-                        <h3 className="text-lg font-medium">Історія завантажень</h3>
+                        <h3 className="text-lg font-medium">{i18n.t('mainPage.history')}</h3>
                     </div>
                     <ul className='pt-[27px]'>
                         {files.map((file) => (
@@ -62,7 +63,7 @@ export default function HomePage() {
             <div className='px-10 py-[86px]'>
                 <div className="bg-white rounded-2xl pl-[45px] className='pb-6'">
                     <div className='pb-6 pt-[61px]'>
-                        <ThemedText type='heading'>Результати аналізу</ThemedText>
+                        <ThemedText type='heading'>{i18n.t('mainPage.resultAnalyze')}</ThemedText>
                     </div>
                     <ScrollableContent className="flex flex-col pb-[21px] max-h-[50vh] pr-20">
                         <ThemedText type='text'>
@@ -200,8 +201,8 @@ export default function HomePage() {
                     </ScrollableContent>
                 </div>
                 <div className='flex justify-between items-center pt-12'>
-                    <Button>Зберегти</Button>
-                    <Button>Завантажити</Button>
+                    <Button>{i18n.t('mainPage.save')}</Button>
+                    <Button>{i18n.t('mainPage.download')}</Button>
                 </div>
             </div>
         </SplitLayout>
