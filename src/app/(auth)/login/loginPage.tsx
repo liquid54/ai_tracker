@@ -15,7 +15,7 @@ const LoginPage = () => {
     const [password, setPassword] = useState('');
     const router = useRouter();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
         if (email === 'admin@admin' && password === 'admin') {

@@ -3,9 +3,9 @@ import { NextRequest, NextResponse } from 'next/server';
 // Константи для наших шляхів
 const ROUTES = {
     LOGIN: '/login',
-    ADMIN_PATHS: ['/chats', '/subs'], // Перейменовано для ясності
-    PUBLIC: ['/login', '/forgetpass', '/resetpass'],
-    USER: ['/', '/profile', '/chat']
+    ADMIN_PATHS: ['/chats', '/subs'] as readonly string[], // Масив типу string[]
+    PUBLIC: ['/login', '/forgetpass', '/resetpass'] as readonly string[],
+    USER: ['/', '/profile', '/chat'] as readonly string[]
 } as const;
 
 export async function middleware(request: NextRequest) {
@@ -15,21 +15,12 @@ export async function middleware(request: NextRequest) {
     const redirectTo = (path: string) =>
         NextResponse.redirect(new URL(path, request.url));
 
-    // Перевіряємо чи шлях публічний
     const isPublicPath = ROUTES.PUBLIC.includes(pathname);
+    const isAdminPath = ROUTES.ADMIN_PATHS.includes(pathname);
+    const isUserPath = ROUTES.USER.includes(pathname);
 
-    // Якщо шлях публічний - дозволяємо доступ
-    if (isPublicPath) {
-        return NextResponse.next();
-    }
-
-    // Якщо це шлях адміна - дозволяємо
-    if (ROUTES.ADMIN_PATHS.includes(pathname)) { // Виправлено перевірку для масиву шляхів адміна
-        return NextResponse.next();
-    }
-
-    // Перевіряємо чи це шлях звичайного користувача
-    if (ROUTES.USER.includes(pathname)) {
+    // Дозволяємо доступ, якщо шлях публічний
+    if (isPublicPath || isAdminPath || isUserPath) {
         return NextResponse.next();
     }
 

@@ -5,8 +5,8 @@ export type MessageType = {
 };
 
 export type ChatBaseProps = {
-    messages: MessageType[];
-    title: string;
+    messages?: MessageType[];
+    title?: string;
     titleClassName?: string;
     containerClassName?: string;
     messagesContainerClassName?: string;
