@@ -9,10 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        Roboto: ['Roboto-Regular', 'sans-serif'],
-        'Roboto-Medium': ['Roboto-Medium', 'sans-serif'],
-        'Roboto-SemiBold': ['Roboto-SemiBold', 'sans-serif'],
-        'Roboto-Bold': ['Roboto-Bold', 'sans-serif'],
+        Roboto: ['var(--font-roboto)'],
+        'Roboto-Medium': ['var(--font-roboto)'],
+        'Roboto-Bold': ['var(--font-roboto)'],
       },
     },
   },

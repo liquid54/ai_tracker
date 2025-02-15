@@ -1,5 +1,7 @@
-import PricingPlans from './pricingPlans'
-import { PricingPlan } from './types/pricing'
+
+import {PricingPlan} from "@/app/components/priceList/types/pricing";
+import PricingPlans from "@/app/components/priceList/pricingPlans";
+
 
 const ProfilePage = () => {
     const pricingPlans: PricingPlan[] = [
@@ -24,7 +26,7 @@ const ProfilePage = () => {
     ]
 
     return (
-        <div className="container mx-auto py-8">
+        <div >
             <PricingPlans plans={pricingPlans} />
         </div>
     )

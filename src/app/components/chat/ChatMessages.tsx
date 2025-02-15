@@ -1,5 +1,7 @@
 import { ChatBaseProps } from './types';
 import { DUMMY_MESSAGES } from './constants';
+import {ThemedText} from "@/app/components/ThemedText";
+import Send from "@/app/assets/icons/send";
 
 const ChatMessages = ({
                           messages = DUMMY_MESSAGES,
@@ -15,7 +17,7 @@ const ChatMessages = ({
     return (
         <div className={containerClassName}>
             <div className={titleClassName}>
-                {title}
+                <ThemedText type='subheading'>{title}</ThemedText>
             </div>
 
             <div className={messagesContainerClassName}>
@@ -42,22 +44,20 @@ const ChatMessages = ({
 
             {/* Input field */}
             <div className="p-4 px-10 pb-[42px]">
-                <div className="flex gap-2">
+                <div className="relative flex items-center">
                     <input
                         type="text"
                         placeholder="Введіть текст"
                         disabled
-                        className="flex-1 p-2 rounded-lg bg-gray-50 border"
+                        className="w-full p-2 pr-12 rounded-lg bg-gray-50 border"
                     />
-                    <button
-                        disabled
-                        className="p-2 rounded-lg bg-gray-100"
-                    >
-                        ➜
+                    <button className="absolute right-0 rounded-lg">
+                        <Send/>
                     </button>
                 </div>
             </div>
         </div>
+
     );
 };
 

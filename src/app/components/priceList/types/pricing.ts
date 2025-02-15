@@ -4,3 +4,8 @@ export type PricingPlan = {
     description: string
     type: string
 }
+
+export type PricingPlansProps = {
+    plans: PricingPlan[]
+}
+

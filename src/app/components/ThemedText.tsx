@@ -2,10 +2,14 @@ import React from 'react';
 
 export type textEnum =
     | 'heading'
+    | 'subheading'
     | 'text'
+    | 'subtext'
+    | 'textlow'
     | 'text-medium-white'
     | 'text-medium-grey'
     | 'link'
+    | 'title'
     | 'empty';
 
 export type ThemedTextProps = React.HTMLAttributes<HTMLSpanElement> & {
@@ -17,11 +21,15 @@ export function ThemedText({ type = 'text', className = '', ...rest }: ThemedTex
     return (
         <span
             className={`
-        ${type === 'heading' ? 'text-[20px] leading-[32px] font-Roboto-Medium text-black/[0.87]' : ''}       
-        ${type === 'text' ? 'text-[14px] leading-[24px] font-Roboto text-black' : ''}
-        ${type === 'text-medium-white' ? 'text-[15px] leading-[26px] font-Roboto-Medium text-white/[0.87]' : ''}
-        ${type === 'text-medium-grey' ? 'text-[14px] leading-[24px] font-Roboto text-black/[0.60]' : ''}
-        ${type === 'link' ? 'text-[14px] leading-[22px] font-Roboto-Medium text-black/[0.87]' : ''}
+        ${type === 'heading' ? 'text-xl leading-8 font-Roboto font-medium text-black/87' : ''}
+        ${type === 'subheading' ? 'text-lg leading-5 font-Roboto font-bold text-black' : ''}      
+        ${type === 'title' ? 'text-[24px] leading-[30px] font-Roboto font-semibold text-black' : ''} 
+        ${type === 'text' ? 'text-sm leading-6 font-Roboto font-normal text-black' : ''}
+        ${type === 'subtext' ? 'text-[10px] leading-[13px] font-Roboto font-normal text-[#333333]' : ''}
+        ${type === 'textlow' ? 'text-xs leading-5 font-Roboto font-normal text-black' : ''}
+        ${type === 'text-medium-white' ? 'text-base leading-6 font-Roboto font-medium text-white/87' : ''}
+        ${type === 'text-medium-grey' ? 'text-sm leading-6 font-Roboto font-normal text-black/60' : ''}
+        ${type === 'link' ? 'text-sm leading-5 font-Roboto font-medium text-black/87' : ''}
         ${type === 'empty' ? '' : ''}
         ${className}`}
             {...rest}
