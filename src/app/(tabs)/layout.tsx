@@ -1,11 +1,14 @@
+import Navigation from "@/app/navigation";
+
 export default function TabsLayout({
                                        children,
                                    }: {
     children: React.ReactNode;
 }) {
     return (
-        <main className="">
+        <body>
+            <Navigation/>
             {children}
-        </main>
+        </body>
     );
 }

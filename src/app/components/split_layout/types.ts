@@ -1,8 +1,7 @@
-import { ReactNode } from 'react';
-
-export type SplitLayoutProps = {
-    children: [ReactNode, ReactNode];
+export interface SplitLayoutProps {
+    children: [React.ReactNode, React.ReactNode];
     leftWidth?: string;
     rightWidth?: string;
     className?: string;
-};
+    showBackgroundOpacity?: boolean;
+}
