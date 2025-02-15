@@ -8,6 +8,7 @@ import Button from "@/app/components/button/Button";
 import LogoBlue from "@/app/assets/icons/logoBlue";
 import Link from "next/link";
 import {useRouter} from 'next/navigation';
+import i18n from "@/app/i18n";
 
 
 const ForgetPass = () => {
@@ -23,8 +24,8 @@ const ForgetPass = () => {
             <div className="flex flex-col items-center justify-center pt-[179px]">
                 <div className="w-full max-w-md">
                     <div className="mb-8">
-                        <h1 className="text-left">Відновлення паролю</h1>
-                        <p className="text-left">Введіть свою зареєестровану пошту</p>
+                        <h1 className="text-left">{i18n.t('forgetPassword.title')}</h1>
+                        <p className="text-left">{i18n.t('forgetPassword.subTitle')}</p>
                     </div>
 
                     <form className="pb-[77px]">
@@ -42,7 +43,7 @@ const ForgetPass = () => {
                             <Button size='small' className="transition-colors flex items-center justify-center space-x-2">
                                 <Link href="/resetpass">
                                     <div className="flex flex-row">
-                                        ДАЛІ<ArrowRight/>
+                                        {i18n.t('forgetPassword.continue')}<ArrowRight/>
                                     </div>
                                 </Link>
                             </Button>
@@ -52,7 +53,7 @@ const ForgetPass = () => {
 
                     <div onClick={() => router.back()}>
                         <Button size='large' variant='secondary'>
-                            Назад
+                            {i18n.t('forgetPassword.back')}
                         </Button>
                     </div>
 
