@@ -16,9 +16,9 @@ const PricingCard = ({ title, price, description }: PricingCardProps) => {
             </div>
 
             <p className="text-gray-600 mb-6">{description}</p>
-            <view className='flex justify-end'>
+            <div className='flex justify-end'>
                 <Button variant="secondary" size="small">Купити</Button>
-            </view>
+            </div>
         </div>
     )
 }

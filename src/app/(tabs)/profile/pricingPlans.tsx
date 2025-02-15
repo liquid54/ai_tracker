@@ -25,9 +25,9 @@ const PricingPlans = ({plans}: PricingPlansProps) => {
                                 />
                             )
                         ))}
+                    </div>
                 </div>
             </div>
-        </div>
 
             <div className="max-w-xl mx-auto p-4 flex flex-col items-center">
                 {plans.map((plan, index) => (
@@ -39,8 +39,8 @@ const PricingPlans = ({plans}: PricingPlansProps) => {
                     />
                 ))}
             </div>
-</SplitLayout>
-)
+        </SplitLayout>
+    )
 }
 
 export default PricingPlans

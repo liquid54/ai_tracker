@@ -6,7 +6,7 @@ import LogoWhite from "@/app/assets/icons/logoWhite";
 import User from "@/app/assets/icons/user";
 import Chat from "@/app/assets/icons/chat";
 
-export default function Navigation() {
+export default function NavAdmin() {
     usePathname();
     return (
         <nav className="bg-blue-600 h-[50px] px-4">
@@ -18,10 +18,10 @@ export default function Navigation() {
 
                 {/* Права частина - іконки */}
                 <div className="flex items-center py-[5px]">
-                    <Link href="/chat" className="flex items-center px-2.5">
+                    <Link href="/chats" className="flex items-center px-2.5">
                         <User />
                     </Link>
-                    <Link href="/profile" className="flex items-center px-2.5">
+                    <Link href="/subs" className="flex items-center px-2.5">
                         <Chat />
                     </Link>
                 </div>

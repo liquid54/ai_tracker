@@ -1,15 +1,19 @@
-import './globals.css'
+import NavAdmin from "@/app/components/navAdmin";
 
-export default function RootLayout({
+export default function TabsLayout({
                                        children,
                                    }: {
-    children: React.ReactNode
+    children: React.ReactNode;
 }) {
     return (
         <html lang="en">
         <body>
+        <NavAdmin/>
+        <main>
             {children}
+        </main>
         </body>
         </html>
     );
 }
+
