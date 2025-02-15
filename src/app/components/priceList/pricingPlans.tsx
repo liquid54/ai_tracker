@@ -1,20 +1,20 @@
 import PricingCard from './pricingCard';
-import {PricingPlan} from './types/pricing'
+import {PricingPlansProps} from './types/pricing'
 import SplitLayout from "@/app/components/split_layout";
 import {ThemedText} from "@/app/components/ThemedText";
+import Plans from "@/app/components/priceList/plans";
+import i18n from "@/app/i18n";
 
-type PricingPlansProps = {
-    plans: PricingPlan[]
-}
+
 
 const PricingPlans = ({plans}: PricingPlansProps) => {
     return (
-        <SplitLayout>
-            <div className="flex items-center">
-                <div>
-                    <ThemedText type='heading' className='flex justify-center'>Ваша підписка</ThemedText>
+        <SplitLayout className='flex h-[100wh]'>
+            <div className="flex items-center gap-x-[37px] justify-center">
+                <div className='p-[18px]'>
+                    <ThemedText type='heading' className='flex justify-center pt-[76px] pb-[37px] '>{i18n.t('profile.titleYourSubscription')}</ThemedText>
 
-                    <div className="max-w-xl mx-auto p-4 ">
+                    <div >
                         {plans.map((plan, index) => (
                             plan.type === 'currently' && (
                                 <PricingCard
@@ -29,15 +29,8 @@ const PricingPlans = ({plans}: PricingPlansProps) => {
                 </div>
             </div>
 
-            <div className="max-w-xl mx-auto p-4 flex flex-col items-center">
-                {plans.map((plan, index) => (
-                    <PricingCard
-                        key={index}
-                        title={plan.title}
-                        price={plan.price}
-                        description={plan.description}
-                    />
-                ))}
+            <div className="flex py-8 pt-[145px]">
+                <Plans plans = {plans} />
             </div>
         </SplitLayout>
     )

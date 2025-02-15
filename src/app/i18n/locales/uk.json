@@ -1,3 +1,70 @@
 {
-  "sign-in": "Вхід"
+  "login":{
+    "title": "Вхід",
+    "sign-in": "УВІЙТИ",
+    "forgotPassword" : "Забули пароль?",
+    "sign-up": "СТВОРИТИ НОВИЙ ПРОФІЛЬ",
+    "sign-in-google": "УВІЙТИ ЗА ДОПОМОГОЮ GOOGLE",
+    "sign-in-apple": "УВІЙТИ ЗА ДОПОМОГОЮ APPLE",
+    "email": "Email адреса *",
+    "password": "Пароль *"
+  },
+  "forgetPassword": {
+    "title": "Відновлення пароля",
+    "subTitle": "Введіть свою зареєстровану пошту",
+    "email": "Email Адреса",
+    "continue": "ДАЛІ",
+    "back" : "НАЗАД"
+  },
+  "resetPasswordEmailMessage": {
+    "title": "Перевірте свою пошту!",
+    "subTitle": "Будь ласка, перевірте свою пошту для подальших дій",
+    "back": "НАЗАД"
+  },
+  "resetPassword": {
+    "title": "Відновлення пароля",
+    "subTitle": "Введіть новий пароль",
+    "newPassword": "Новий пароль",
+    "confirmNewPassword": "Повторіть новий пароль",
+    "next":"ДАЛІ",
+    "back": "НАЗАД"
+  },
+  "mainPage": {
+    "titleFile": "Завантаження файлу",
+    "fileNotSelected": "Файл не вибрано",
+    "process": "ОБРОБИТИ",
+    "titleHistory": "Історія завантажень",
+    "titleAnalyse": "Результати аналізу",
+    "save": "ЗБЕРЕГТИ",
+    "download":"ЗАВАНТАЖИТИ"
+  },
+  "chat": {
+    "title": "Технічна Підтримка"
+  },
+  "profile": {
+    "titleYourSubscription": "Ваша підписка",
+    "rate": "Тариф",
+    "pricePerMonth": "місяць",
+    "yourSubscriptionExpireDate" : "Термін дії до: ",
+    "extendSubscription": "ПОДОВЖИТИ",
+    "buySubscription": "КУПИТИ"
+  },
+  "adminPanelChats": {
+    "titleUsers": "Користувачі",
+    "block": "ЗАБЛОКУВАТИ",
+    "extendSubscription": "ПОДОВЖИТИ",
+    "yourSubscriptionExpireDate" : "Термін дії до: ",
+    "titleChat": "Чат з "
+  },
+  "adminPanelSubscriptions": {
+    "titleSubscriptions": "Підписки",
+    "rate": "Тариф",
+    "pricePerMonth": "місяць",
+    "edit": "Редагувати",
+    "titleEdit": "Редагування Підписки",
+    "name": "Назва",
+    "description": "Опис",
+    "price": "Ціна",
+    "save": "зберегти"
+  }
 }
