@@ -31,14 +31,13 @@ export default function HomePage() {
         </li>
     );
 
-
     return (
         <SplitLayout>
             <div className='pt-[49px] px-[51px] '>
                 <div className='flex flex-col items-center gap-y-4 w-full'>
-                    <ThemedText type='heading'>{i18n.t('mainPage.downloadFile')}</ThemedText>
+                    <ThemedText type='heading'>{i18n.t('mainPage.titleFile')}</ThemedText>
                     <div className='flex gap-x-5 justify-between items-center'>
-                        <ThemedText type='text-medium-grey' className='border-1 '>{i18n.t('mainPage.upload')}</ThemedText>
+                        <ThemedText type='text-medium-grey' className='border-1 '>{i18n.t('mainPage.titleFile')}</ThemedText>
                         <ThemedText type='text'>{i18n.t('mainPage.fileNotSelected')}</ThemedText>
                     </div>
                     <Button>
@@ -50,7 +49,7 @@ export default function HomePage() {
 
                 <div className='pt-[113px] w-full'>
                     <div className='flex justify-center'>
-                        <h3 className="text-lg font-medium">{i18n.t('mainPage.history')}</h3>
+                        <h3 className="text-lg font-medium">{i18n.t('mainPage.titleHistory')}</h3>
                     </div>
                     <ul className='pt-[27px]'>
                         {files.map((file) => (
@@ -63,7 +62,7 @@ export default function HomePage() {
             <div className='px-10 py-[86px]'>
                 <div className="bg-white rounded-2xl pl-[45px] className='pb-6'">
                     <div className='pb-6 pt-[61px]'>
-                        <ThemedText type='heading'>{i18n.t('mainPage.resultAnalyze')}</ThemedText>
+                        <ThemedText type='heading'>{i18n.t('mainPage.titleAnalyse')}</ThemedText>
                     </div>
                     <ScrollableContent className="flex flex-col pb-[21px] max-h-[50vh] pr-20">
                         <ThemedText type='text'>

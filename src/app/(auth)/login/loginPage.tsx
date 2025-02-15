@@ -78,8 +78,8 @@ const LoginPage = () => {
 
                             <div className='flex flex-col gap-y-5'>
                                 <Button variant="secondary" size="large">{i18n.t('login.sign-up')} </Button>
-                                <Button variant="secondary" size="large">{i18n.t('login.sign-up-google')}</Button>
-                                <Button variant="secondary" size="large">{i18n.t('login.sign-up-apple')}</Button>
+                                <Button variant="secondary" size="large">{i18n.t('login.sign-in-google')}</Button>
+                                <Button variant="secondary" size="large">{i18n.t('login.sign-in-apple')}</Button>
                             </div>
                         </div>
                     </div>
