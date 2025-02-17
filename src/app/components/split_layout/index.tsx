@@ -3,8 +3,8 @@ import { SplitLayoutProps } from './types';
 
 export default function SplitLayout({
                                         children,
-                                        leftWidth = 'w-[42.22%]',
-                                        rightWidth = 'w-[57.78%]',
+                                        leftWidth = 'w-[25%]',
+                                        rightWidth = 'w-[75%]',
                                         className = '',
                                         showBackgroundOpacity = true // новий параметр
                                     }: SplitLayoutProps) {

@@ -17,7 +17,7 @@ const SubsPage = () => {
     return (
         <SplitLayout className="flex h-[100wh]">
             <div>
-                <div className="flex justify-center pt-[76px] pb-[43px]" >
+                <div className="flex justify-center pt-[26px] pb-[43px]" >
                     <ThemedText type='heading'>{i18n.t('adminPanelSubscriptions.titleSubscriptions')}</ThemedText>
                 </div>
                 <Plans plans={pricingPlans} />

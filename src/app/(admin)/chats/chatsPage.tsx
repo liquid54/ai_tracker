@@ -39,7 +39,7 @@ const ChatsPage = () => {
 
     return (
         <SplitLayout className="h-screen w-full flex">
-            <div className="px-[42px] pt-[70px] pb-[31px] bg-white">
+            <div className="px-[25px] pt-[70px] pb-[31px] bg-white">
                 <Users messages={demoMessages}/>
             </div>
 

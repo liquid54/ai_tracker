@@ -9,22 +9,22 @@ function Users({messages, className}: ChatMessagesProps) {
             <div className='py-5 pl-[21px]'>
                 <ThemedText type='subheading'>{i18n.t('adminPanelChats.titleUsers')}</ThemedText>
             </div>
-            <div className={`flex flex-col space-y-5 w-full px-5 pt-[56px] ${className || ''}`}>
+            <div className={`flex flex-col space-y-5 w-full px-3 pt-[56px] ${className || ''}`}>
                 {messages.map((message) => (
                     <div
                         key={message.id}
-                        className="flex flex-col bg-white rounded-lg shadow-sm p-4 w-full border-2 border-gray-200"
+                        className="flex flex-col bg-white rounded-lg p-4 w-full border-2 border-gray-200"
                     >
-                        <div className="flex items-center space-x-4 justify-between">
+                        <div className="flex items-center justify-between">
                             <ThemedText
                                 type='subheading'
-                                className="pl-[28px]"
+                                className="w-2/5"
                             >
                                 {message.user}
                             </ThemedText>
                             <ThemedText
                                 type='textlow'
-                                className="pr-[16px]"
+                                className="w-3/5 pr-4"
                             >
                                 {message.text}
                             </ThemedText>

@@ -9,6 +9,7 @@ import LogoBlue from "@/app/assets/icons/logoBlue";
 import Link from "next/link";
 import {useRouter} from 'next/navigation';
 import i18n from "@/app/i18n";
+import {ThemedText} from "@/app/components/ThemedText";
 
 
 const ForgetPass = () => {
@@ -23,12 +24,12 @@ const ForgetPass = () => {
             </div>
             <div className="flex flex-col items-center justify-center pt-[179px]">
                 <div className="w-full max-w-md">
-                    <div className="mb-8">
-                        <h1 className="text-left">{i18n.t('forgetPassword.title')}</h1>
-                        <p className="text-left">{i18n.t('forgetPassword.subTitle')}</p>
+                    <div className="flex flex-col">
+                        <ThemedText type='heading' className="text-left">{i18n.t('forgetPassword.title')}</ThemedText>
+                        <ThemedText type='subtitle' className="text-left">{i18n.t('forgetPassword.subTitle')}</ThemedText>
                     </div>
 
-                    <form className="pb-[77px]">
+                    <form className="pb-[77px] pt-[41px]">
 
                         <CustomInput
                             type="email"
@@ -41,7 +42,7 @@ const ForgetPass = () => {
 
                         <div className="pt-6">
                             <Button size='small' className="transition-colors flex items-center justify-center space-x-2">
-                                <Link href="/resetpass">
+                                <Link href="/checkmail">
                                     <div className="flex flex-row">
                                         {i18n.t('forgetPassword.continue')}<ArrowRight/>
                                     </div>

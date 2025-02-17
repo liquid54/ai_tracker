@@ -3,6 +3,8 @@ export type PricingPlan = {
     price: string
     description: string
     type: string
+    visibleDesc?: boolean
+    dateAmount?: string
 }
 
 export type PricingPlansProps = {
