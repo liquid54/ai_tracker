@@ -4,8 +4,8 @@
     "sign-in": "УВІЙТИ",
     "forgotPassword" : "Забули пароль?",
     "sign-up": "СТВОРИТИ НОВИЙ ПРОФІЛЬ",
-    "sign-in-google": "УВІЙТИ ЗА ДОПОМОГОЮ GOOGLE",
-    "sign-in-apple": "УВІЙТИ ЗА ДОПОМОГОЮ APPLE",
+    "sign-in-google": "Увійти ",
+    "sign-in-apple": "Увійти ",
     "email": "Email адреса *",
     "password": "Пароль *"
   },
@@ -53,7 +53,7 @@
     "titleUsers": "Користувачі",
     "block": "ЗАБЛОКУВАТИ",
     "extendSubscription": "ПОДОВЖИТИ",
-    "yourSubscriptionExpireDate" : "Термін дії до: ",
+    "yourSubscriptionExpireDate" : "Термін дії до ",
     "titleChat": "Чат з "
   },
   "adminPanelSubscriptions": {

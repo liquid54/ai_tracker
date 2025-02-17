@@ -22,6 +22,9 @@ const PricingPlans = ({plans}: PricingPlansProps) => {
                                     title={plan.title}
                                     price={plan.price}
                                     description={plan.description}
+                                    buttonText={i18n.t('profile.extendSubscription')}
+                                    visibleDesc={true}
+                                    dateAmount={plan.dateAmount} // Додаємо цей параметр
                                 />
                             )
                         ))}
@@ -30,7 +33,7 @@ const PricingPlans = ({plans}: PricingPlansProps) => {
             </div>
 
             <div className="flex py-8 pt-[145px]">
-                <Plans plans = {plans} />
+                <Plans plans={plans}/>
             </div>
         </SplitLayout>
     )

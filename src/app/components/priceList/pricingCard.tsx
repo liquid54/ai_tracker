@@ -6,9 +6,19 @@ type PricingCardProps = {
     title: string
     price: string
     description: string
+    buttonText?: string
+    visibleDesc?: boolean
+    dateAmount?: string
 }
 
-const PricingCard = ({ title, price, description }: PricingCardProps) => {
+const PricingCard = ({
+                         title,
+                         price,
+                         description,
+                         buttonText = i18n.t('profile.buySubscription'),
+                         visibleDesc = false,
+                         dateAmount
+                     }: PricingCardProps) => {
     return (
         <div className="border border-gray-200 rounded-lg p-[18px] bg-white">
             <div className="flex justify-between items-center">
@@ -18,11 +28,18 @@ const PricingCard = ({ title, price, description }: PricingCardProps) => {
 
             <div className="pt-[31px]">
                 <div className='pr-[175px]'>
-                    <ThemedText type='text-medium-grey' >{description}</ThemedText>
+                    <ThemedText type='text-medium-grey'>{description}</ThemedText>
                 </div>
-                <div className='flex justify-end'>
-                    <Button variant="secondary" size="small">{i18n.t('profile.buySubscription')}</Button>
-                </div>
+                {visibleDesc ? (
+                    <div className='flex justify-between'>
+                        <ThemedText type='text' className='text-[#00000099] opacity-60 self-end'>{dateAmount}</ThemedText>
+                        <Button variant="secondary" size="small">{buttonText}</Button>
+                    </div>
+                ) : (
+                    <div className='flex justify-end'>
+                        <Button variant="secondary" size="small">{buttonText}</Button>
+                    </div>
+                )}
             </div>
         </div>
     )

@@ -10,6 +10,7 @@ export type textEnum =
     | 'text-medium-grey'
     | 'link'
     | 'title'
+    | 'subtitle'
     | 'empty';
 
 export type ThemedTextProps = React.HTMLAttributes<HTMLSpanElement> & {
@@ -23,7 +24,9 @@ export function ThemedText({ type = 'text', className = '', ...rest }: ThemedTex
             className={`
         ${type === 'heading' ? 'text-xl leading-8 font-Roboto font-medium text-black/87' : ''}
         ${type === 'subheading' ? 'text-lg leading-5 font-Roboto font-bold text-black' : ''}      
-        ${type === 'title' ? 'text-[24px] leading-[30px] font-Roboto font-semibold text-black' : ''} 
+        ${type === 'title' ? 'text-[24px] leading-[30px] font-Roboto font-semibold text-black' : ''}
+        ${type === 'subtitle' ? 'text-[14px] leading-[20px] font-Roboto font-normal text-black' : ''}
+
         ${type === 'text' ? 'text-sm leading-6 font-Roboto font-normal text-black' : ''}
         ${type === 'subtext' ? 'text-[10px] leading-[13px] font-Roboto font-normal text-[#333333]' : ''}
         ${type === 'textlow' ? 'text-xs leading-5 font-Roboto font-normal text-black' : ''}

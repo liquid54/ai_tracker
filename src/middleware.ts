@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 const ROUTES = {
     LOGIN: '/login',
     ADMIN_PATHS: ['/chats', '/subs'] as readonly string[], // Масив типу string[]
-    PUBLIC: ['/login', '/forgetpass', '/resetpass'] as readonly string[],
+    PUBLIC: ['/login', '/forgetpass', '/resetpass', '/checkmail'] as readonly string[],
     USER: ['/', '/profile', '/chat'] as readonly string[]
 } as const;
 
