@@ -1,9 +1,12 @@
+'use client'
+
 import SplitLayout from "@/app/components/split_layout";
 import Bin from "@/app/assets/icons/bin";
 import Button from "@/app/components/button/Button";
 import {ThemedText} from "@/app/components/ThemedText";
 import ScrollableContent from "../components/ScrolableContent";
 import i18n from "@/app/i18n";
+import {ChangeEvent, useState} from "react";
 
 export default function HomePage() {
     const files = [
@@ -18,6 +21,14 @@ export default function HomePage() {
         {id: 9, name: 'File9.doc'},
         {id: 10, name: 'File10.doc'}
     ];
+
+    const [fileName, setFileName] = useState(i18n.t('mainPage.fileNotSelected'));
+
+    const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        setFileName(file?.name ?? i18n.t('mainPage.fileNotSelected'));
+    };
+
 
     const ListItem = ({fileName}: {fileName: string}) => (
         <li>
@@ -36,10 +47,24 @@ export default function HomePage() {
             <div className='pt-[49px] px-[51px] '>
                 <div className='flex flex-col items-center gap-y-4 w-full'>
                     <ThemedText type='heading'>{i18n.t('mainPage.titleFile')}</ThemedText>
-                    <div className='flex gap-x-5 justify-between items-center'>
-                        <ThemedText type='text-medium-grey' className='border-1 '>{i18n.t('mainPage.titleFile')}</ThemedText>
-                        <ThemedText type='text'>{i18n.t('mainPage.fileNotSelected')}</ThemedText>
-                    </div>
+                    <label className='flex gap-x-5 justify-between items-center cursor-pointer'>
+                        <input
+                            type="file"
+                            className="hidden"
+                            onChange={handleFileChange}
+                            accept="*/*"
+                        />
+                        <ThemedText
+                            type='text-medium-grey'
+                            className='border-1'
+                        >
+                            {i18n.t('mainPage.titleFile')}
+                        </ThemedText>
+
+                        <ThemedText type='text'>
+                            {fileName}
+                        </ThemedText>
+                    </label>
                     <Button>
                         <div>
                             <ThemedText type='text-medium-white'>{i18n.t('mainPage.process')}</ThemedText>

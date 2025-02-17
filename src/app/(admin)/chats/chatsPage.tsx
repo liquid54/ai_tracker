@@ -52,6 +52,7 @@ const ChatsPage = () => {
                         <ChatMessages title="Чат з Username"
                                       requestWrapperClassName="mb-6 max-w-[300px]" // Змінюємо відступ і максимальну ширину
                                       respondWrapperClassName="flex flex-col items-end mb-6 max-w-[300px] ml-auto"
+                                      isSupportChat={true}
                         />
                     </div>
                 </div>

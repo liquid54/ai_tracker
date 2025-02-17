@@ -33,7 +33,13 @@ const PricingCard = ({
                 {visibleDesc ? (
                     <div className='flex justify-between'>
                         <ThemedText type='text' className='text-[#00000099] opacity-60 self-end'>{dateAmount}</ThemedText>
-                        <Button variant="secondary" size="small">{buttonText}</Button>
+                        <Button
+                            variant="secondary"
+                            size="small"
+                            className="w-[120px]"  // або яка ширина вам потрібна
+                        >
+                            {buttonText}
+                        </Button>
                     </div>
                 ) : (
                     <div className='flex justify-end'>
