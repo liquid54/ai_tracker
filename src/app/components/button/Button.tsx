@@ -21,8 +21,8 @@ const Button = ({
     const baseStyles = 'flex items-center justify-center gap-2 rounded-2xl text-black';
 
     const variantStyles = {
-        primary: 'border-2 border-[#0057FF]',
-        secondary: 'border-2 border-black'
+        primary: 'border-2 border-[#0057FF] hover:bg-[#0057FF] hover:text-white',
+        secondary: 'border-2 border-black hover:bg-black hover:text-white'
     };
 
     const sizeStyles = {

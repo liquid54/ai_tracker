@@ -14,4 +14,5 @@ export type ChatBaseProps = {
     respondMessageClassName?: string;
     requestWrapperClassName?: string;
     respondWrapperClassName?: string;
+    isSupportChat?: boolean;
 };
