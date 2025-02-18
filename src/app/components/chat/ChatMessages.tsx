@@ -28,7 +28,7 @@ const ChatMessages = ({
                 respond: isSupportChat
                     ? "Дякую за відповідь!"
                     : "Дякуємо за запит, надамо відповідь якомога швидше",
-                timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                timestamp: new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})
             };
 
             setMessages([...messages, newMessage]);
@@ -44,41 +44,45 @@ const ChatMessages = ({
     };
 
     const renderMessage = (message: MessageType, index: number) => {
-        if (!isSupportChat) {
+        if (isSupportChat) {
             return (
-                <div key={`message-${index}`}>
+                <div key={`message-${index}`} className="flex flex-col space-y-4">
                     <div className={respondWrapperClassName}>
                         <div className={respondMessageClassName}>
                             <p className="text-sm">{message.request}</p>
                         </div>
                         <div className="text-xs text-gray-500 mt-1">{message.timestamp}</div>
                     </div>
-                    <div className={requestWrapperClassName}>
-                        <div className={requestMessageClassName}>
-                            <p className="text-sm">{message.respond}</p>
+                    {message.respond && (
+                        <div className={requestWrapperClassName}>
+                            <div className={requestMessageClassName}>
+                                <p className="text-sm">{message.respond}</p>
+                            </div>
+                            <div className="text-xs text-gray-500 mt-1">{message.timestamp}</div>
+                        </div>
+                    )}
+                </div>
+            );
+        } else {
+            return (
+                <div key={`message-${index}`} className="flex flex-col space-y-4">
+                    <div className={respondWrapperClassName}>
+                        <div className={respondMessageClassName}>
+                            <p className="text-sm">{message.request}</p>
                         </div>
                         <div className="text-xs text-gray-500 mt-1">{message.timestamp}</div>
                     </div>
+                    {message.respond && (
+                        <div className={requestWrapperClassName}>
+                            <div className={requestMessageClassName}>
+                                <p className="text-sm">{message.respond}</p>
+                            </div>
+                            <div className="text-xs text-gray-500 mt-1">{message.timestamp}</div>
+                        </div>
+                    )}
                 </div>
             );
         }
-
-        return (
-            <div key={`message-${index}`}>
-                <div className={requestWrapperClassName}>
-                    <div className={requestMessageClassName}>
-                        <p className="text-sm">{message.request}</p>
-                    </div>
-                    <div className="text-xs text-gray-500 mt-1">{message.timestamp}</div>
-                </div>
-                <div className={respondWrapperClassName}>
-                    <div className={respondMessageClassName}>
-                        <p className="text-sm">{message.respond}</p>
-                    </div>
-                    <div className="text-xs text-gray-500 mt-1">{message.timestamp}</div>
-                </div>
-            </div>
-        );
     };
 
     return (
@@ -111,7 +115,7 @@ const ChatMessages = ({
             </div>
         </div>
     );
-};
+}
 
 
 export default ChatMessages;

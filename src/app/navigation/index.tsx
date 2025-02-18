@@ -18,10 +18,10 @@ export default function Navigation() {
 
                 {/* Права частина - іконки */}
                 <div className="flex items-center py-[5px]">
-                    <Link href="/chat" className="flex items-center px-2.5">
+                    <Link href="/profile" className="flex items-center px-2.5">
                         <User />
                     </Link>
-                    <Link href="/profile" className="flex items-center px-2.5">
+                    <Link href="/chat" className="flex items-center px-2.5">
                         <Chat />
                     </Link>
                 </div>
