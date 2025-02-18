@@ -47,7 +47,7 @@ export default function HomePage() {
             <div className='pt-[49px] px-[51px] '>
                 <div className='flex flex-col items-center gap-y-4 w-full'>
                     <ThemedText type='heading'>{i18n.t('mainPage.titleFile')}</ThemedText>
-                    <label className='flex gap-x-5 justify-between items-center cursor-pointer'>
+                    <label className='flex gap-x-3 justify-between items-center cursor-pointer'>
                         <input
                             type="file"
                             className="hidden"
@@ -56,8 +56,7 @@ export default function HomePage() {
                         />
                         <ThemedText
                             type='text-medium-grey'
-                            className='border-1'
-                        >
+                            className='border border-gray-300 rounded-[10px] px-2 '>
                             {i18n.t('mainPage.titleFile')}
                         </ThemedText>
 
