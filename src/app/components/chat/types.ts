@@ -1,12 +1,12 @@
-export type MessageType = {
+export interface ChatMessage {
     request: string;
-    respond: string;
+    respond?: string;
     timestamp: string;
-};
+}
 
-export type ChatBaseProps = {
-    messages?: MessageType[];
-    title?: string;
+export interface ChatBaseProps {
+    messages?: ChatMessage[];
+    title: string;
     titleClassName?: string;
     containerClassName?: string;
     messagesContainerClassName?: string;
@@ -15,4 +15,5 @@ export type ChatBaseProps = {
     requestWrapperClassName?: string;
     respondWrapperClassName?: string;
     isSupportChat?: boolean;
-};
+    onSendMessage?: (message: ChatMessage) => void;
+}

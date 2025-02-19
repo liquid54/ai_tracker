@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, KeyboardEvent } from 'react';
+import React, { useState, KeyboardEvent, useEffect } from 'react';
 import { ChatBaseProps } from './types';
 import { DUMMY_MESSAGES } from './constants';
 import { ThemedText } from "@/app/components/ThemedText";
@@ -17,22 +17,38 @@ const ChatMessages = ({
                           respondMessageClassName = "bg-blue-500 text-white rounded-2xl px-4 py-2 break-words whitespace-pre-wrap",
                           requestWrapperClassName = "mb-4 sm:mb-5 md:mb-6 max-w-xs md:max-w-md",
                           respondWrapperClassName = "flex flex-col items-end mb-4 sm:mb-5 md:mb-6 max-w-xs md:max-w-md ml-auto",
-                          isSupportChat = false
+                          isSupportChat = false,
+                          onSendMessage
                       }: ChatBaseProps) => {
     const [messages, setMessages] = useState(initialMessages);
     const [inputText, setInputText] = useState('');
 
+    // Оновлюємо локальні повідомлення при зміні initialMessages
+    useEffect(() => {
+        setMessages(initialMessages);
+    }, [initialMessages]);
+
     const handleSendMessage = () => {
         if (inputText.trim()) {
+            const timestamp = new Date().toLocaleTimeString([], {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
             const newMessage = {
                 request: inputText,
                 respond: isSupportChat
                     ? "Дякую за відповідь!"
                     : "Дякуємо за запит, надамо відповідь якомога швидше",
-                timestamp: new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})
+                timestamp
             };
 
-            setMessages([...messages, newMessage]);
+            // Якщо передано onSendMessage, викликаємо його
+            if (onSendMessage) {
+                onSendMessage(newMessage);
+            }
+
+            setMessages(prevMessages => [...prevMessages, newMessage]);
             setInputText('');
         }
     };
@@ -75,7 +91,9 @@ const ChatMessages = ({
                 <div className="relative flex items-center">
                     <input
                         type="text"
-                        placeholder={isSupportChat ? "Введіть відповідь користувачу" : "Введіть текст"}
+                        placeholder={isSupportChat
+                            ? "Введіть відповідь користувачу"
+                            : "Введіть текст"}
                         value={inputText}
                         onChange={(e) => setInputText(e.target.value)}
                         onKeyDown={onKeyDown}
