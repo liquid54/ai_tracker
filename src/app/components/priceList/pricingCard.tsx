@@ -35,8 +35,8 @@ const PricingCard = ({
                         <ThemedText type='text' className='text-[#00000099] opacity-60 self-end'>{dateAmount}</ThemedText>
                         <Button
                             variant="secondary"
-                            size="small"
-                            className="w-[120px]"  // або яка ширина вам потрібна
+                            size="medium"
+                              // або яка ширина вам потрібна
                         >
                             {buttonText}
                         </Button>

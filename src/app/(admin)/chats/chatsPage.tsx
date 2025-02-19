@@ -9,31 +9,31 @@ const ChatsPage = () => {
             id: 1,
             user: "User 1",
             text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-            timestamp: "22.03.2025"
+            timestamp: "21.03.2025"
         },
         {
             id: 2,
-            user: "User 1",
+            user: "User 2",
             text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
             timestamp: "22.03.2025"
         },
         {
             id: 3,
-            user: "User 1",
+            user: "User 3",
             text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-            timestamp: "22.03.2025"
+            timestamp: "23.03.2025"
         },
         {
             id: 4,
-            user: "User 1",
+            user: "User 4",
             text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-            timestamp: "22.03.2025"
+            timestamp: "24.03.2025"
         },
         {
             id: 5,
-            user: "User 1",
+            user: "User 5",
             text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-            timestamp: "22.03.2025"
+            timestamp: "25.03.2025"
         }
     ];
 
