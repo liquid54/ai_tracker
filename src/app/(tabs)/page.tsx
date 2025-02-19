@@ -29,12 +29,11 @@ export default function HomePage() {
         setFileName(file?.name ?? i18n.t('mainPage.fileNotSelected'));
     };
 
-
     const ListItem = ({fileName}: {fileName: string}) => (
         <li>
-            <div className='py-[8px]'>
-                <div className='flex justify-between items-center p-[8px] pb-[1px]'>
-                    <ThemedText type='text-medium-grey'>{fileName}</ThemedText>
+            <div className="py-2">
+                <div className="flex justify-between items-center p-2 pb-[1px]">
+                    <ThemedText type="text-medium-grey" className="truncate">{fileName}</ThemedText>
                     <Bin/>
                 </div>
                 <hr/>
@@ -43,11 +42,16 @@ export default function HomePage() {
     );
 
     return (
-        <SplitLayout>
-            <div className='pt-[49px] px-[51px] '>
-                <div className='flex flex-col items-center gap-y-4 w-full'>
-                    <ThemedText type='heading'>{i18n.t('mainPage.titleFile')}</ThemedText>
-                    <label className='flex gap-x-3 justify-between items-center cursor-pointer'>
+        <SplitLayout showBackgroundOpacity={false}>
+            {/* Ліва колонка */}
+            <div className="p-4 md:pt-[49px] md:px-[51px]">
+                {/* Секція завантаження файлу */}
+                <div className="flex flex-col items-center gap-y-4 w-full">
+                    <ThemedText type="heading" className="text-center">
+                        {i18n.t('mainPage.titleFile')}
+                    </ThemedText>
+
+                    <label className="flex flex-col md:flex-row w-full md:w-auto items-center gap-3 cursor-pointer">
                         <input
                             type="file"
                             className="hidden"
@@ -55,27 +59,32 @@ export default function HomePage() {
                             accept="*/*"
                         />
                         <ThemedText
-                            type='text-medium-grey'
-                            className='border border-gray-300 rounded-[10px] px-2 hover:bg-gray-300 hover:text-white'>
+                            type="text-medium-grey"
+                            className="border border-gray-300 rounded-[10px] px-4 py-2 hover:bg-gray-300 hover:text-white w-full md:w-auto text-center"
+                        >
                             {i18n.t('mainPage.titleFile')}
                         </ThemedText>
 
-                        <ThemedText type='text'>
+                        <ThemedText type="text" className="truncate max-w-[200px]">
                             {fileName}
                         </ThemedText>
                     </label>
-                    <Button>
-                        <div>
-                            <ThemedText type='text-medium-white'>{i18n.t('mainPage.process')}</ThemedText>
-                        </div>
+
+                    <Button className="w-full md:w-auto">
+                        <ThemedText type="text-medium-white">
+                            {i18n.t('mainPage.process')}
+                        </ThemedText>
                     </Button>
                 </div>
 
-                <div className='pt-[113px] w-full'>
-                    <div className='flex justify-center'>
-                        <h3 className="text-lg font-medium">{i18n.t('mainPage.titleHistory')}</h3>
+                {/* Секція історії */}
+                <div className="mt-8 md:mt-[113px]">
+                    <div className="flex justify-center">
+                        <h3 className="text-lg font-medium">
+                            {i18n.t('mainPage.titleHistory')}
+                        </h3>
                     </div>
-                    <ul className='pt-[27px]'>
+                    <ul className="mt-4 md:mt-[27px] max-h-[40vh] overflow-y-auto">
                         {files.map((file) => (
                             <ListItem key={file.id} fileName={file.name}/>
                         ))}
@@ -83,149 +92,34 @@ export default function HomePage() {
                 </div>
             </div>
 
-            <div className='px-10 py-[86px]'>
-                <div className="bg-white rounded-2xl pl-[45px] className='pb-6'">
-                    <div className='pb-6 pt-[61px]'>
-                        <ThemedText type='heading'>{i18n.t('mainPage.titleAnalyse')}</ThemedText>
+            {/* Права колонка */}
+            <div className="p-4 md:px-10 md:py-[86px]">
+                <div className="bg-white rounded-2xl p-4 md:pl-[45px]">
+                    <div className="pb-4 md:pb-6 pt-4 md:pt-[61px]">
+                        <ThemedText type="heading">
+                            {i18n.t('mainPage.titleAnalyse')}
+                        </ThemedText>
                     </div>
-                    <ScrollableContent className="flex flex-col pb-[21px] max-h-[50vh] pr-20">
-                        <ThemedText type='text'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                            ut aliquip ex ea
-                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est
-                            laborum.
-                        </ThemedText>
-                        <ThemedText type='text'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                            aliquip ex ea
-                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est
-                            laborum.
-                        </ThemedText>
-                        <ThemedText type='text'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                            aliquip ex ea
-                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est
-                            laborum.
-                        </ThemedText>
-                        <ThemedText type='text'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                            aliquip ex ea
-                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est
-                            laborum.
-                        </ThemedText>
-                        <ThemedText type='text'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                            ut aliquip ex ea
-                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est
-                            laborum.
-                        </ThemedText>
-                        <ThemedText type='text'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                            aliquip ex ea
-                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est
-                            laborum.
-                        </ThemedText>
-                        <ThemedText type='text'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                            aliquip ex ea
-                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est
-                            laborum.
-                        </ThemedText>
-                        <ThemedText type='text'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                            aliquip ex ea
-                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est
-                            laborum.
-                        </ThemedText>
-                        <ThemedText type='text'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                            ut aliquip ex ea
-                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est
-                            laborum.
-                        </ThemedText>
-                        <ThemedText type='text'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                            aliquip ex ea
-                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est
-                            laborum.
-                        </ThemedText>
-                        <ThemedText type='text'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                            aliquip ex ea
-                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est
-                            laborum.
-                        </ThemedText>
-                        <ThemedText type='text'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                            aliquip ex ea
-                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est
-                            laborum.
-                        </ThemedText>
+
+                    <ScrollableContent className="flex flex-col pb-4 md:pb-[21px] max-h-[40vh] md:max-h-[50vh] pr-4 md:pr-20">
+                        <div className="space-y-4">
+                            {Array(12).fill(null).map((_, index) => (
+                                <ThemedText key={index} type="text">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
+                                </ThemedText>
+                            ))}
+                        </div>
                     </ScrollableContent>
                 </div>
-                <div className='flex justify-between items-center pt-12'>
-                    <Button>{i18n.t('mainPage.save')}</Button>
-                    <Button>{i18n.t('mainPage.download')}</Button>
+
+                <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-6 md:mt-12">
+                    <Button className="w-full md:w-auto">
+                        {i18n.t('mainPage.save')}
+                    </Button>
+                    <Button className="w-full md:w-auto">
+                        {i18n.t('mainPage.download')}
+                    </Button>
                 </div>
             </div>
         </SplitLayout>
