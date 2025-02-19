@@ -56,7 +56,7 @@ export default function HomePage() {
                         />
                         <ThemedText
                             type='text-medium-grey'
-                            className='border border-gray-300 rounded-[10px] px-2 '>
+                            className='border border-gray-300 rounded-[10px] px-2 hover:bg-gray-300 hover:text-white'>
                             {i18n.t('mainPage.titleFile')}
                         </ThemedText>
 
