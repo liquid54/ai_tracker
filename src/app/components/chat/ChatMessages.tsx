@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, KeyboardEvent } from 'react';
-import { ChatBaseProps, MessageType } from './types';
+import { ChatBaseProps } from './types';
 import { DUMMY_MESSAGES } from './constants';
 import { ThemedText } from "@/app/components/ThemedText";
 import Send from "@/app/assets/icons/send";
