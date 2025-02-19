@@ -23,7 +23,6 @@ const ChatMessages = ({
     const [messages, setMessages] = useState(initialMessages);
     const [inputText, setInputText] = useState('');
 
-    // Оновлюємо локальні повідомлення при зміні initialMessages
     useEffect(() => {
         setMessages(initialMessages);
     }, [initialMessages]);
@@ -43,7 +42,6 @@ const ChatMessages = ({
                 timestamp
             };
 
-            // Якщо передано onSendMessage, викликаємо його
             if (onSendMessage) {
                 onSendMessage(newMessage);
             }
@@ -97,13 +95,13 @@ const ChatMessages = ({
                         value={inputText}
                         onChange={(e) => setInputText(e.target.value)}
                         onKeyDown={onKeyDown}
-                        className="w-full p-2 pr-12 rounded-lg bg-gray-50 border focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full p-2 pr-12 rounded-lg bg-gray-50 border focus:outline-none focus:ring-2 focus:ring-[#0057FF]"
                     />
                     <button
                         onClick={handleSendMessage}
-                        className="absolute right-0 rounded-lg p-2 hover:bg-gray-100 transition-colors"
+                        className="absolute right-0 rounded-lg p-2 transition-colors"
                     >
-                        <Send/>
+                        <Send color={inputText.trim() ? "#0057FF" : "#C4C4C4"} />
                     </button>
                 </div>
             </div>
