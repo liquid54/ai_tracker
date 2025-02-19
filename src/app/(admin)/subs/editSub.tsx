@@ -1,8 +1,37 @@
-import Button from "@/app/components/button/Button";
-import {ThemedText} from "@/app/components/ThemedText";
-import i18n from "@/app/i18n";
+'use client'
 
-const EditSub = () => {
+import { useEffect, useState } from 'react';
+import Button from "@/app/components/button/Button";
+import { ThemedText } from "@/app/components/ThemedText";
+import i18n from "@/app/i18n";
+import type { PricingPlan } from "@/app/components/priceList/types/pricing";
+
+interface EditSubProps {
+    plan: PricingPlan | null;
+}
+
+const EditSub = ({ plan }: EditSubProps) => {
+    const [formData, setFormData] = useState({
+        title: '',
+        description: '',
+        price: ''
+    });
+
+    // Оновлюємо дані форми коли змінюється вибраний план
+    useEffect(() => {
+        if (plan) {
+            setFormData({
+                title: plan.title,
+                description: plan.description,
+                price: plan.price.replace('$', '').trim()
+            });
+        }
+    }, [plan]);
+
+    if (!plan) {
+        return null;
+    }
+
     return (
         <div className="w-full flex items-center justify-center">
             <div className="w-full max-w-[320px] sm:max-w-[400px] md:max-w-md
@@ -24,7 +53,11 @@ const EditSub = () => {
                             <input
                                 type="text"
                                 className="w-full border-b border-black py-1 sm:py-2 outline-none"
-                                defaultValue="Тариф 'Місяць'"
+                                value={formData.title}
+                                onChange={(e) => setFormData(prev => ({
+                                    ...prev,
+                                    title: e.target.value
+                                }))}
                             />
                         </div>
 
@@ -37,7 +70,11 @@ const EditSub = () => {
                                          py-1 sm:py-2
                                          pt-4 sm:pt-6 md:pt-[32px]
                                          min-h-[80px] outline-none resize-none"
-                                defaultValue="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+                                value={formData.description}
+                                onChange={(e) => setFormData(prev => ({
+                                    ...prev,
+                                    description: e.target.value
+                                }))}
                             />
                         </div>
 
@@ -49,7 +86,11 @@ const EditSub = () => {
                                 <input
                                     type="text"
                                     className="w-full border-b border-black py-1 sm:py-2 outline-none"
-                                    defaultValue="14"
+                                    value={formData.price}
+                                    onChange={(e) => setFormData(prev => ({
+                                        ...prev,
+                                        price: e.target.value
+                                    }))}
                                 />
                             </div>
                         </div>

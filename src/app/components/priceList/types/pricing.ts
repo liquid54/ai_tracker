@@ -1,13 +1,14 @@
-export type PricingPlan = {
-    title: string
-    price: string
-    description: string
-    type: string
-    visibleDesc?: boolean
-    dateAmount?: string
+export interface PricingPlan {
+    key: number;
+    title: string;
+    price: string;
+    description: string;
 }
 
-export type PricingPlansProps = {
-    plans: PricingPlan[]
+export interface PricingCardProps {
+    title: string;
+    price: string;
+    description: string;
+    buttonText?: string;
+    onClick?: () => void;
 }
-
