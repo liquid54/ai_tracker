@@ -96,7 +96,7 @@ const EditSub = ({ plan }: EditSubProps) => {
                         </div>
                     </div>
 
-                    <div className="pt-4 sm:pt-6 md:pt-8">
+                    <div className="pt-4 sm:pt-6 md:pt-8 items-center">
                         <Button
                             variant="primary"
                             className="w-full bg-black text-white py-2 sm:py-3"
