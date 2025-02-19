@@ -25,9 +25,9 @@ const Button = ({
     };
 
     const sizeStyles = {
-        large: 'w-full md:w-[344px] h-[42px]',
-        small: 'w-full md:w-[107px] h-[42px] px-[22px] py-2',
-        medium: 'w-full md:w-[126px] h-[42px] rounded-[10px]'
+        large: 'w-full h-[42px] max-w-[320px]',
+        small: 'w-full h-[42px] max-w-[107px] px-4 py-2',
+        medium: 'w-full h-[42px] max-w-[126px] rounded-[10px]'
     };
 
     return (

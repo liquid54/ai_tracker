@@ -1,5 +1,6 @@
-import ChatMessages from "@/app/components/chat/ChatMessages";
+'use client'
 
+import ChatMessages from "@/app/components/chat/ChatMessages";
 
 const chatPage = () => {
     return (
@@ -12,19 +13,23 @@ const chatPage = () => {
                     backgroundSize: 'cover'
                 }}
             />
-            <div className="relative w-full px-[208px] pt-[96px] pb-[91px] border border-[#C4C4C4] ">
-
+            <div className="relative w-full
+                          px-4 sm:px-6 md:px-4 lg:px-[208px]
+                          pt-6 sm:pt-6 md:pt-4 lg:pt-[96px]
+                          pb-6 sm:pb-6 md:pb-4 lg:pb-[91px]
+                          border border-[#C4C4C4]">
                 <div>
-
-                    <ChatMessages title="Технічна підтримка"
-                                  requestWrapperClassName="mb-6 max-w-[300px]" // Змінюємо відступ і максимальну ширину
-                                  respondWrapperClassName="flex flex-col items-end mb-6 max-w-[300px] ml-auto"
+                    <ChatMessages
+                        title="Технічна підтримка"
+                        titleClassName="pl-4 sm:pl-6 md:pl-8 lg:pl-[41px] py-4 sm:py-5 md:py-6 border-b"
+                        messagesContainerClassName="p-4 sm:p-6 md:p-8 lg:px-[45px] lg:pt-[48px] space-y-6 sm:space-y-7 md:space-y-8"
+                        requestWrapperClassName="mb-4 sm:mb-5 md:mb-6 max-w-[300px]"
+                        respondWrapperClassName="flex flex-col items-end mb-4 sm:mb-5 md:mb-6 max-w-[300px] ml-auto"
                     />
                 </div>
             </div>
         </div>
     );
 }
-
 
 export default chatPage;

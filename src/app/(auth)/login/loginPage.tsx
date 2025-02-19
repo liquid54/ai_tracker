@@ -40,7 +40,7 @@ const LoginPage = () => {
 
                 {/* Основний контент */}
                 <div className="flex-1 bg-white px-4 md:px-6 lg:px-[51px] py-8 md:py-12 lg:py-[144px]">
-                    <div className="flex flex-col items-center md:max-w-[320px] lg:max-w-[344px] mx-auto">
+                    <div className="flex flex-col items-center max-w-[320px] mx-auto">
                         <ThemedText type="heading" className="mb-8 md:mb-10 lg:mb-[44px] text-center">
                             {i18n.t('login.title')}
                         </ThemedText>
@@ -87,21 +87,21 @@ const LoginPage = () => {
                             <Button
                                 variant="secondary"
                                 size="large"
-                                className="w-full md:w-[320px] lg:w-[344px]"
+                                className="w-full"
                             >
                                 {i18n.t('login.sign-up')}
                             </Button>
                             <Button
                                 variant="secondary"
                                 size="large"
-                                className="w-full md:w-[320px] lg:w-[344px] items-center"
+                                className="w-full"
                             >
                                 {i18n.t('login.sign-in-google')}<IconGoogle/>
                             </Button>
                             <Button
                                 variant="secondary"
                                 size="large"
-                                className="w-full md:w-[320px] lg:w-[344px]"
+                                className="w-full"
                             >
                                 {i18n.t('login.sign-in-apple')} <IconApple/>
                             </Button>

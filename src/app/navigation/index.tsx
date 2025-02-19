@@ -9,7 +9,7 @@ import Chat from "@/app/assets/icons/chat";
 export default function Navigation() {
     usePathname();
     return (
-        <nav className="bg-blue-600 h-[50px] px-4">
+        <nav className="bg-blue-600 h-[50px] px-4 w-full">
             <div className="flex justify-between px-[41px] py-[5px]">
                 {/* Ліва частина - лого */}
                 <Link href="/" className="flex items-center pl-2.5">

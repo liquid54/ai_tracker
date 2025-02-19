@@ -39,25 +39,29 @@ const ChatsPage = () => {
 
     return (
         <SplitLayout className="h-screen w-full flex">
+            {/* Ліва частина - список користувачів */}
             <div className="px-[25px] pt-[70px] pb-[31px] bg-white">
                 <Users messages={demoMessages}/>
             </div>
 
-
+            {/* Права частина - інформація про користувача та чат */}
             <div>
-                <div className='px-[120px] pt-[70px] pb-[23px]'>
+                <div className="px-4 md:px-6 lg:px-[120px]
+                               pt-[70px] pb-[23px]">
+                    {/* Картка користувача */}
                     <UserCard messages={demoMessages} selectedId={1} />
 
-                    <div className='pt-[23px]'>
-                        <ChatMessages title="Чат з Username"
-                                      requestWrapperClassName="mb-6 max-w-[300px]" // Змінюємо відступ і максимальну ширину
-                                      respondWrapperClassName="flex flex-col items-end mb-6 max-w-[300px] ml-auto"
-                                      isSupportChat={true}
+                    {/* Чат */}
+                    <div className="pt-[23px]">
+                        <ChatMessages
+                            title="Чат з Username"
+                            requestWrapperClassName="mb-6 max-w-[300px]"
+                            respondWrapperClassName="flex flex-col items-end mb-6 max-w-[300px] ml-auto"
+                            isSupportChat={true}
                         />
                     </div>
                 </div>
             </div>
-
         </SplitLayout>
     );
 }
