@@ -3,15 +3,15 @@ import { SplitLayoutProps } from './types';
 
 export default function SplitLayout({
                                         children,
-                                        leftWidth = 'w-[25%]',
-                                        rightWidth = 'w-[75%]',
+                                        leftWidth = 'w-full md:w-[35%]',
+                                        rightWidth = 'w-full md:w-[65%]', // Removed 'hidden' class
                                         className = '',
-                                        showBackgroundOpacity = true // новий параметр
+                                        showBackgroundOpacity = true
                                     }: SplitLayoutProps) {
     const [left, right] = children;
 
     return (
-        <div className={`flex h-[100wh] ${className}`}>
+        <div className={`flex flex-col md:flex-row min-h-screen ${className}`}>
             <div className={`${leftWidth} bg-white`}>
                 {left}
             </div>

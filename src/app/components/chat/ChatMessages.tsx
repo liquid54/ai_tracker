@@ -9,13 +9,13 @@ import Send from "@/app/assets/icons/send";
 const ChatMessages = ({
                           messages: initialMessages = DUMMY_MESSAGES,
                           title,
-                          titleClassName = "pl-[41px] py-6 border-b",
+                          titleClassName = "pl-4 sm:pl-6 md:pl-8 lg:pl-[41px] py-4 sm:py-5 md:py-6 border-b",
                           containerClassName = "w-full bg-white rounded-lg overflow-hidden border-[1px] border-[#C4C4C4]",
-                          messagesContainerClassName = "p-4 space-y-8 px-[45px] pt-[48px]",
+                          messagesContainerClassName = "p-4 sm:p-6 md:p-8 lg:px-[45px] lg:pt-[48px] space-y-6 sm:space-y-7 md:space-y-8",
                           requestMessageClassName = "bg-gray-100 rounded-2xl px-4 py-2",
                           respondMessageClassName = "bg-blue-500 text-white rounded-2xl px-4 py-2",
-                          requestWrapperClassName = "mb-8 max-w-xs md:max-w-md",
-                          respondWrapperClassName = "flex flex-col items-end mb-8 max-w-xs md:max-w-md ml-auto",
+                          requestWrapperClassName = "mb-4 sm:mb-5 md:mb-6 max-w-xs md:max-w-md",
+                          respondWrapperClassName = "flex flex-col items-end mb-4 sm:mb-5 md:mb-6 max-w-xs md:max-w-md ml-auto",
                           isSupportChat = false
                       }: ChatBaseProps) => {
     const [messages, setMessages] = useState(initialMessages);
@@ -43,48 +43,6 @@ const ChatMessages = ({
         }
     };
 
-    const renderMessage = (message: MessageType, index: number) => {
-        if (isSupportChat) {
-            return (
-                <div key={`message-${index}`} className="flex flex-col space-y-4">
-                    <div className={respondWrapperClassName}>
-                        <div className={respondMessageClassName}>
-                            <p className="text-sm">{message.request}</p>
-                        </div>
-                        <div className="text-xs text-gray-500 mt-1">{message.timestamp}</div>
-                    </div>
-                    {message.respond && (
-                        <div className={requestWrapperClassName}>
-                            <div className={requestMessageClassName}>
-                                <p className="text-sm">{message.respond}</p>
-                            </div>
-                            <div className="text-xs text-gray-500 mt-1">{message.timestamp}</div>
-                        </div>
-                    )}
-                </div>
-            );
-        } else {
-            return (
-                <div key={`message-${index}`} className="flex flex-col space-y-4">
-                    <div className={respondWrapperClassName}>
-                        <div className={respondMessageClassName}>
-                            <p className="text-sm">{message.request}</p>
-                        </div>
-                        <div className="text-xs text-gray-500 mt-1">{message.timestamp}</div>
-                    </div>
-                    {message.respond && (
-                        <div className={requestWrapperClassName}>
-                            <div className={requestMessageClassName}>
-                                <p className="text-sm">{message.respond}</p>
-                            </div>
-                            <div className="text-xs text-gray-500 mt-1">{message.timestamp}</div>
-                        </div>
-                    )}
-                </div>
-            );
-        }
-    };
-
     return (
         <div className={containerClassName}>
             <div className={titleClassName}>
@@ -92,10 +50,27 @@ const ChatMessages = ({
             </div>
 
             <div className={messagesContainerClassName}>
-                {messages.map((message, index) => renderMessage(message, index))}
+                {messages.map((message, index) => (
+                    <div key={`message-${index}`} className="flex flex-col space-y-4">
+                        <div className={respondWrapperClassName}>
+                            <div className={respondMessageClassName}>
+                                <p className="text-sm">{message.request}</p>
+                            </div>
+                            <div className="text-xs text-gray-500 mt-1">{message.timestamp}</div>
+                        </div>
+                        {message.respond && (
+                            <div className={requestWrapperClassName}>
+                                <div className={requestMessageClassName}>
+                                    <p className="text-sm">{message.respond}</p>
+                                </div>
+                                <div className="text-xs text-gray-500 mt-1">{message.timestamp}</div>
+                            </div>
+                        )}
+                    </div>
+                ))}
             </div>
 
-            <div className="p-4 px-10 pb-[42px]">
+            <div className="p-4 sm:px-6 md:px-8 lg:px-10 pb-6 sm:pb-8 md:pb-10 lg:pb-[42px]">
                 <div className="relative flex items-center">
                     <input
                         type="text"
@@ -116,6 +91,5 @@ const ChatMessages = ({
         </div>
     );
 }
-
 
 export default ChatMessages;

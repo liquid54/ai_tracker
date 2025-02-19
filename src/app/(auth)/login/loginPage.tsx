@@ -26,62 +26,85 @@ const LoginPage = () => {
             router.push('/chats');
         } else {
             localStorage.setItem('userRole', 'user');
-            router.push('/');  // Тепер користувач повинен потрапити на головну
+            router.push('/');
         }
     };
 
-
     return (
-        <SplitLayout showBackgroundOpacity={false} className="h-screen">
-            <div className="bg-[#0057FF]">
-                <div className='pl-[51px] py-[5px]'>
+        <SplitLayout showBackgroundOpacity={true} className="min-h-screen">
+            <div className="w-full h-full flex flex-col">
+                {/* Шапка з логотипом */}
+                <div className="bg-[#0057FF] px-4 md:px-6 lg:px-[51px] py-[5px]">
                     <LogoWhite/>
                 </div>
-                <div className="bg-white">
-                    <div className='pt-[144px] px-[131px] '>
-                        <div className='flex flex-col items-center'>
-                            <ThemedText type='heading'>{i18n.t('login.title')}</ThemedText>
-                            <div className='pb-[44px]'>
-                                <div className='flex flex-col items-center gap-y-6'>
-                                    <form className='flex flex-col items-center'
-                                          onSubmit={handleSubmit}>
-                                        <CustomInput
-                                            type="email"
-                                            placeholder="Email адреса *"
-                                            value={email}
-                                            onChange={(e) => setEmail(e.target.value)}
-                                            required
-                                            className="mb-6"
-                                        />
 
-                                        <CustomInput
-                                            type="password"
-                                            placeholder="Пароль *"
-                                            value={password}
-                                            onChange={(e) => setPassword(e.target.value)}
-                                            required
-                                            className="mb-6"
-                                        />
+                {/* Основний контент */}
+                <div className="flex-1 bg-white px-4 md:px-6 lg:px-[51px] py-8 md:py-12 lg:py-[144px]">
+                    <div className="flex flex-col items-center max-w-[320px] mx-auto">
+                        <ThemedText type="heading" className="mb-8 md:mb-10 lg:mb-[44px] text-center">
+                            {i18n.t('login.title')}
+                        </ThemedText>
 
-                                        <div className="flex flex-row items-center justify-between w-full">
-                                            <Button size="medium" className='rounded-[10px]' type="submit">
-                                                УВІЙТИ<ArrowRight/>
-                                            </Button>
+                        {/* Форма входу */}
+                        <form className="w-full space-y-6 mb-8" onSubmit={handleSubmit}>
+                            <CustomInput
+                                type="email"
+                                placeholder="Email адреса *"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                                className="w-full"
+                            />
 
-                                            <Link href="/forgetpass">
-                                                <ThemedText type='link'>{i18n.t('login.forgotPassword')}</ThemedText>
-                                            </Link>
-                                        </div>
-                                    </form>
+                            <CustomInput
+                                type="password"
+                                placeholder="Пароль *"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                                className="w-full"
+                            />
 
-                                </div>
+                            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                                <Button
+                                    size="medium"
+                                    className="rounded-[10px] w-full sm:w-auto"
+                                    type="submit"
+                                >
+                                    УВІЙТИ<ArrowRight/>
+                                </Button>
+
+                                <Link href="/forgetpass" className="text-center">
+                                    <ThemedText type="link">
+                                        {i18n.t('login.forgotPassword')}
+                                    </ThemedText>
+                                </Link>
                             </div>
+                        </form>
 
-                            <div className='flex flex-col gap-y-5'>
-                                <Button variant="secondary" size="large">{i18n.t('login.sign-up')}</Button>
-                                <Button variant="secondary" size="large" className='items-center'>{i18n.t('login.sign-in-google')}<IconGoogle/></Button>
-                                <Button variant="secondary" size="large" className=''>{i18n.t('login.sign-in-apple')} <IconApple/></Button>
-                            </div>
+                        {/* Додаткові кнопки */}
+                        <div className="w-full space-y-5">
+                            <Button
+                                variant="secondary"
+                                size="large"
+                                className="w-full"
+                            >
+                                {i18n.t('login.sign-up')}
+                            </Button>
+                            <Button
+                                variant="secondary"
+                                size="large"
+                                className="w-full"
+                            >
+                                {i18n.t('login.sign-in-google')}<IconGoogle/>
+                            </Button>
+                            <Button
+                                variant="secondary"
+                                size="large"
+                                className="w-full"
+                            >
+                                {i18n.t('login.sign-in-apple')} <IconApple/>
+                            </Button>
                         </div>
                     </div>
                 </div>
@@ -89,7 +112,7 @@ const LoginPage = () => {
 
             <div></div>
         </SplitLayout>
-    )
-}
+    );
+};
 
 export default LoginPage;
