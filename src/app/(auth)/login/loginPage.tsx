@@ -31,7 +31,7 @@ const LoginPage = () => {
     };
 
     return (
-        <SplitLayout showBackgroundOpacity={true} className="min-h-screen">
+        <SplitLayout showBackgroundOpacity={false} className="min-h-screen">
             <div className="w-full h-full flex flex-col">
                 {/* Шапка з логотипом */}
                 <div className="bg-[#0057FF] px-4 md:px-6 lg:px-[51px] py-[5px]">
@@ -68,7 +68,7 @@ const LoginPage = () => {
                             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                                 <Button
                                     size="medium"
-                                    className="rounded-[10px] w-full sm:w-auto"
+                                    className="rounded-[10px] w-full sm:w-auto px-2"
                                     type="submit"
                                 >
                                     УВІЙТИ<ArrowRight/>

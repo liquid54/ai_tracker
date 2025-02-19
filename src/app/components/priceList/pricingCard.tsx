@@ -1,54 +1,37 @@
-import {ThemedText} from "@/app/components/ThemedText";
+import { PricingCardProps } from './types/pricing';
 import Button from "@/app/components/button/Button";
-import i18n from "@/app/i18n";
-
-type PricingCardProps = {
-    title: string
-    price: string
-    description: string
-    buttonText?: string
-    visibleDesc?: boolean
-    dateAmount?: string
-}
 
 const PricingCard = ({
                          title,
                          price,
                          description,
-                         buttonText = i18n.t('profile.buySubscription'),
-                         visibleDesc = false,
-                         dateAmount
+                         buttonText,
+                         onClick,
+
                      }: PricingCardProps) => {
     return (
-        <div className="border border-gray-200 rounded-lg p-[18px] bg-white">
+        <div className="w-full px-4 sm:px-5 md:px-6 lg:px-[41px]
+                        py-4 sm:py-5 md:py-6
+                        bg-white rounded-lg border border-gray-300
+                        flex flex-col">
             <div className="flex justify-between items-center">
-                <ThemedText type='heading'>{title}</ThemedText>
-                <ThemedText type='heading'>{price}$ / {i18n.t('profile.pricePerMonth')}</ThemedText>
+                <h3 className="text-lg font-medium">{title}</h3>
+                <p className="text-lg font-medium">{price}$ / місяць</p>
             </div>
 
-            <div className="pt-[31px]">
-                <div className='pr-[175px]'>
-                    <ThemedText type='text-medium-grey'>{description}</ThemedText>
-                </div>
-                {visibleDesc ? (
-                    <div className='flex justify-between'>
-                        <ThemedText type='text' className='text-[#00000099] opacity-60 self-end'>{dateAmount}</ThemedText>
-                        <Button
-                            variant="secondary"
-                            size="small"
-                            className="w-[120px]"  // або яка ширина вам потрібна
-                        >
-                            {buttonText}
-                        </Button>
-                    </div>
-                ) : (
-                    <div className='flex justify-end'>
-                        <Button variant="secondary" size="small">{buttonText}</Button>
-                    </div>
-                )}
-            </div>
+            <p className="mt-2 text-gray-600">{description}</p>
+
+            {buttonText && (
+                <Button
+                    variant="secondary"
+                    onClick={onClick}
+                    className="mt-4 w-[120px] self-end"
+                >
+                    {buttonText}
+                </Button>
+            )}
         </div>
-    )
-}
+    );
+};
 
-export default PricingCard
+export default PricingCard;
