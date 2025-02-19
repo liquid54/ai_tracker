@@ -6,7 +6,8 @@ const PricingCard = ({
                          price,
                          description,
                          buttonText,
-                         onClick
+                         onClick,
+
                      }: PricingCardProps) => {
     return (
         <div className="w-full px-4 sm:px-5 md:px-6 lg:px-[41px]

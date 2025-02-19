@@ -1,6 +1,6 @@
-import { MessageType } from './types';
+import { ChatMessage } from './types';
 
-export const DUMMY_MESSAGES: MessageType[] = [
+export const DUMMY_MESSAGES: ChatMessage[] = [
     {
         request: "Lorem ipsum has been the industry's standard dummy text ever since the 1500s",
         respond: "Lorem ipsum has been the industry's standard dummy text ever since the 1500s",
