@@ -17,17 +17,17 @@ interface FileHistory {
 }
 
 export default function HomePage() {
-    const [fileName, setFileName] = useState('');
+    const [fileName, setFileName] = useState(i18n.t('mainPage.fileNotSelected'));
     const [extractedText, setExtractedText] = useState('');
     const [fileHistory, setFileHistory] = useState<FileHistory[]>([]);
     const [isLoading, setIsLoading] = useState(false);
 
     const { extractTextFromPDF } = PDFHandler({
-        onTextExtracted: (text) => {
+        onTextExtracted: (text, filename) => {
             setExtractedText(text);
             // Add to history only if text was successfully extracted
-            if (text) {
-                addToHistory(fileName, text);
+            if (text && filename) {
+                addToHistory(filename, text);
             }
         }
     });
@@ -57,14 +57,9 @@ export default function HomePage() {
         setIsLoading(true);
         try {
             if (file.type === 'application/pdf') {
-                setFileName(file.name); // Оновлюємо на ім'я файлу
+                setFileName(file.name);
                 await extractTextFromPDF(file);
-            } else {
-                setFileName(i18n.t('mainPage.fileNotSupported')); // Якщо файл не PDF
             }
-        } catch (error) {
-            setFileName(i18n.t('mainPage.fileNotFound')); // Якщо сталася помилка при обробці
-            console.error('File handling error:', error);
         } finally {
             setIsLoading(false);
         }
@@ -120,7 +115,7 @@ export default function HomePage() {
                         />
                         <ThemedText
                             type="text-medium-grey"
-                            className="border border-gray-300 rounded-[10px] px-3 sm:px-2 py-[1px] hover:bg-gray-300 hover:text-white w-full sm:w-auto text-center text-sm sm:text-base"
+                            className="border border-gray-300 rounded-[10px] px-3 sm:px-2 py-[1px] hover:bg-gray-300 hover:text-white w-full sm:w-auto text-center transition-colors text-sm sm:text-base"
                         >
                             {i18n.t('mainPage.titleFile')}
                         </ThemedText>
@@ -129,12 +124,13 @@ export default function HomePage() {
                             type="text"
                             className="truncate max-w-[150px] sm:max-w-[200px] text-sm sm:text-base"
                         >
-                            {fileName || i18n.t('mainPage.fileNotSelected')}
+                            {fileName}
                         </ThemedText>
                     </label>
 
                     <Button
                         className="w-full sm:w-[200px] md:w-[250px] px-4 sm:px-8"
+
                     >
                         <ThemedText type="text-medium-white">
                             {isLoading ? 'Processing...' : i18n.t('mainPage.process')}
@@ -174,16 +170,16 @@ export default function HomePage() {
                     >
                         <div className="space-y-3 sm:space-y-4">
                             {isLoading ? (
-                                <ThemedText type="text" className="text-sm sm:text-base">
-                                    Завантаження файлу
+                                <ThemedText type="text">
+                                    Завантаження файлу PDF
                                 </ThemedText>
                             ) : extractedText ? (
-                                <ThemedText type="text" className="text-sm sm:text-base whitespace-pre-wrap">
+                                <ThemedText type="text">
                                     {extractedText}
                                 </ThemedText>
                             ) : (
-                                <ThemedText type="text" className="text-sm sm:text-base text-center">
-                                    Завантажте файл або оберіть з доступних
+                                <ThemedText type="text">
+                                    Файл не вибрано
                                 </ThemedText>
                             )}
                         </div>

@@ -8,7 +8,7 @@ import * as pdfjsLib from 'pdfjs-dist';
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
 interface PDFHandlerProps {
-    onTextExtracted: (text: string) => void;
+    onTextExtracted: (text: string, filename: string) => void;
 }
 
 const PDFHandler = ({ onTextExtracted }: PDFHandlerProps) => {
@@ -30,7 +30,7 @@ const PDFHandler = ({ onTextExtracted }: PDFHandlerProps) => {
                 fullText += pageText + '\n\n';
             }
 
-            onTextExtracted(fullText);
+            onTextExtracted(fullText, file.name);
         } catch (error) {
             console.error('Error extracting text from PDF:', error);
         } finally {
