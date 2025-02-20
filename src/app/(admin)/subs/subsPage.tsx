@@ -30,7 +30,7 @@ const SubsPage = () => {
             </div>
 
             <div>
-                <div className="px-4 sm:px-6 md:px-8 lg:px-[220px]
+                <div className="px-4 sm:px-6 md:px-8 lg:px-[110px]
                                pt-6 sm:pt-8 md:pt-12 lg:pt-[151px]
                                content-center">
                     <EditSub plan={selectedPlan} />
