@@ -28,6 +28,7 @@ const ChatMessages = ({
         messagesEndRef.current?.scrollIntoView({ behavior: "auto" });
     };
 
+
     useEffect(() => {
         setMessages(initialMessages);
     }, [initialMessages]);
