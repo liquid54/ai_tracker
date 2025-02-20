@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useState, KeyboardEvent, useEffect } from 'react';
-import { ChatBaseProps } from './types';
+import React, { useState, KeyboardEvent, useEffect, useRef } from 'react';
+import { ChatBaseProps, Message, MessagesEndRef } from './types';
 import { DUMMY_MESSAGES } from './constants';
 import { ThemedText } from "@/app/components/ThemedText";
 import Send from "@/app/assets/icons/send";
@@ -20,12 +20,21 @@ const ChatMessages = ({
                           isSupportChat = false,
                           onSendMessage
                       }: ChatBaseProps) => {
-    const [messages, setMessages] = useState(initialMessages);
+    const [messages, setMessages] = useState<Message[]>(initialMessages);
     const [inputText, setInputText] = useState('');
+    const messagesEndRef = useRef<MessagesEndRef>(null);
+
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "auto" });
+    };
 
     useEffect(() => {
         setMessages(initialMessages);
     }, [initialMessages]);
+
+    useEffect(() => {
+        scrollToBottom();
+    }, [messages]);
 
     const handleSendMessage = () => {
         if (inputText.trim()) {
@@ -83,6 +92,7 @@ const ChatMessages = ({
                         )}
                     </div>
                 ))}
+                <div ref={messagesEndRef} />
             </ScrollableContent>
 
             <div className="p-4 bg-white border-t">
