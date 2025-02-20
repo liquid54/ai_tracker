@@ -1,12 +1,12 @@
-export interface Message {
+export interface ChatMessage {
     request: string;
-    respond: string;
+    respond?: string;
     timestamp: string;
 }
 
 export interface ChatBaseProps {
-    messages?: Message[];
-    title?: string;
+    messages?: ChatMessage[];
+    title: string;
     titleClassName?: string;
     containerClassName?: string;
     messagesContainerClassName?: string;
@@ -15,7 +15,5 @@ export interface ChatBaseProps {
     requestWrapperClassName?: string;
     respondWrapperClassName?: string;
     isSupportChat?: boolean;
-    onSendMessage?: (message: Message) => void;
+    onSendMessage?: (message: ChatMessage) => void;
 }
-
-export type MessagesEndRef = HTMLDivElement;
