@@ -25,7 +25,7 @@ const PricingPlans = ({plans}: PricingPlansProps) => {
                                     description={plan.description}
                                     buttonText={i18n.t('profile.extendSubscription')}
                                     visibleDesc={true}
-                                    dateAmount={plan.dateAmount} // Додаємо цей параметр
+                                    dateAmount={plan.dateAmount}
                                 />
                             )
                         ))}

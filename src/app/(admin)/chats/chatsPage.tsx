@@ -35,7 +35,7 @@ const ChatsPage = () => {
 
     return (
         <SplitLayout className="h-screen w-full flex">
-            {/* Ліва частина - список користувачів */}
+
             <div className="px-[25px] pt-[70px] pb-[31px] bg-white">
                 <Users
                     messages={users}
@@ -44,7 +44,7 @@ const ChatsPage = () => {
                 />
             </div>
 
-            {/* Права частина - інформація про користувача та чат */}
+
             <div>
                 <div className="px-4 md:px-6 lg:px-[120px] pt-[70px] pb-[23px]">
                     {/* Картка користувача */}

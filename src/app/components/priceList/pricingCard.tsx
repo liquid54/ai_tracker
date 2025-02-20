@@ -1,5 +1,7 @@
 import { PricingCardProps } from './types/pricing';
 import Button from "@/app/components/button/Button";
+import {ThemedText} from "@/app/components/ThemedText";
+import i18n from "@/app/i18n";
 
 const PricingCard = ({
                          title,
@@ -17,16 +19,16 @@ const PricingCard = ({
                     flex flex-col min-h-[200px] relative">
             <div>
                 <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-medium">{title}</h3>
-                    <p className="text-lg font-medium">{price}$ / місяць</p>
+                    <ThemedText type='heading'>{title}</ThemedText>
+                    <ThemedText type='heading'>{price}$ / {i18n.t('profile.pricePerMonth')}</ThemedText>
                 </div>
 
-                <p className="mt-2 text-gray-600">{description}</p>
+                <ThemedText type='subtitle' className='text-black/60'>{description}</ThemedText>
             </div>
 
             <div className="mt-auto lg:pb-0 sm:pb-16 md:pb-16">
                 {dateAmount && visibleDesc && (
-                    <p className="text-gray-600">Термін дії до: {dateAmount}</p>
+                    <ThemedText type='subtitle' className='text-black/60'>{i18n.t('profile.yourSubscriptionExpireDate')}: {dateAmount}</ThemedText>
                 )}
             </div>
 
