@@ -71,7 +71,7 @@ const LoginPage = () => {
                                     className="rounded-[10px] w-full sm:w-auto px-2"
                                     type="submit"
                                 >
-                                    УВІЙТИ<ArrowRight/>
+                                    {i18n.t('login.sign-in')}<ArrowRight/>
                                 </Button>
 
                                 <Link href="/forgetpass" className="text-center">
@@ -82,7 +82,7 @@ const LoginPage = () => {
                             </div>
                         </form>
 
-                        {/* Додаткові кнопки */}
+
                         <div className="w-full space-y-5">
                             <Button
                                 variant="secondary"

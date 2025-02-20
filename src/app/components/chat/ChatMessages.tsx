@@ -69,16 +69,16 @@ const ChatMessages = ({
                     <div key={`message-${index}`}>
                         <div className={respondWrapperClassName}>
                             <div className={`${respondMessageClassName} max-w-full`}>
-                                <p className="text-sm">{message.request}</p>
+                                <ThemedText type='subtitle' className='text-white'>{message.request}</ThemedText>
                             </div>
-                            <div className="text-xs text-gray-500 mt-1">{message.timestamp}</div>
+                            <ThemedText type='subtext' className="mt-1">{message.timestamp}</ThemedText>
                         </div>
                         {message.respond && (
                             <div className={requestWrapperClassName}>
                                 <div className={`${requestMessageClassName} max-w-full`}>
-                                    <p className="text-sm">{message.respond}</p>
+                                    <ThemedText type='subtitle'>{message.respond}</ThemedText>
                                 </div>
-                                <div className="text-xs text-gray-500 mt-1">{message.timestamp}</div>
+                                <ThemedText type='subtext' className="mt-1">{message.timestamp}</ThemedText>
                             </div>
                         )}
                     </div>

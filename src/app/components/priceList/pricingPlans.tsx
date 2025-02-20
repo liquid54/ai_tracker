@@ -12,8 +12,9 @@ const PricingPlans = ({plans}: PricingPlansProps) => {
         <SplitLayout className='flex h-[100wh]'>
             <div className="flex items-center gap-x-[37px] justify-center">
                 <div className='p-[18px]'>
-                    <ThemedText type='heading' className='flex justify-center pt-[76px] pb-[37px] '>{i18n.t('profile.titleYourSubscription')}</ThemedText>
-
+                    <ThemedText type='heading' className='flex justify-center pt-8 sm:pt-12 md:pt-[76px] pb-6 sm:pb-8 md:pb-[37px]'>
+                        {i18n.t('profile.titleYourSubscription')}
+                    </ThemedText>
                     <div >
                         {plans.map((plan, index) => (
                             plan.type === 'currently' && (
@@ -24,7 +25,7 @@ const PricingPlans = ({plans}: PricingPlansProps) => {
                                     description={plan.description}
                                     buttonText={i18n.t('profile.extendSubscription')}
                                     visibleDesc={true}
-                                    dateAmount={plan.dateAmount} // Додаємо цей параметр
+                                    dateAmount={plan.dateAmount}
                                 />
                             )
                         ))}
