@@ -29,7 +29,6 @@ const ScrollableContent = ({ children, className = '', autoScroll = false }: Scr
         >
             {children}
         </div>
-
     );
 };
 
