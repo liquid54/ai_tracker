@@ -3,6 +3,7 @@
 
 import { useState } from 'react';
 import * as pdfjsLib from 'pdfjs-dist';
+import { TextItem } from 'pdfjs-dist/types/src/display/api';
 
 // Initialize PDF.js worker
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
@@ -25,7 +26,8 @@ const PDFHandler = ({ onTextExtracted }: PDFHandlerProps) => {
                 const page = await pdf.getPage(i);
                 const textContent = await page.getTextContent();
                 const pageText = textContent.items
-                    .map((item: any) => item.str)
+                    .filter((item): item is TextItem => 'str' in item)
+                    .map(item => item.str)
                     .join(' ');
                 fullText += pageText + '\n\n';
             }
