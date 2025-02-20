@@ -10,9 +10,9 @@ export default function Navigation() {
     usePathname();
     return (
         <nav className="bg-[#0057FF] h-[50px] px-4 w-full">
-            <div className="flex justify-between px-[41px] py-[5px]">
+            <div className="flex justify-between lg:px-[41px] py-[5px] sm:px-0 md:px-0">
                 {/* Ліва частина - лого */}
-                <Link href="/" className="flex items-center pl-2.5 ">
+                <Link href="/" className="flex items-center pl-2.5 sm:pl-0 md:pl-0">
                     <LogoWhite/>
                 </Link>
 

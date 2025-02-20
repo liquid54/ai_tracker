@@ -17,7 +17,7 @@ const Button = ({
                     onClick,
                     type
                 }: ButtonProps) => {
-    const baseStyles = 'flex items-center justify-center gap-2 rounded-2xl text-black';
+    const baseStyles = 'flex items-center justify-center gap-2 rounded-2xl text-black px-3';
 
     const variantStyles = {
         primary: 'border-2 border-[#0057FF] hover:bg-[#0057FF] hover:text-white',
