@@ -4,7 +4,7 @@ import { SplitLayoutProps } from './types';
 export default function SplitLayout({
                                         children,
                                         leftWidth = 'w-full md:w-[35%]',
-                                        rightWidth = 'w-full md:w-[65%]', // Removed 'hidden' class
+                                        rightWidth = 'w-full md:w-[65%]',
                                         className = '',
                                         showBackgroundOpacity = true
                                     }: SplitLayoutProps) {
