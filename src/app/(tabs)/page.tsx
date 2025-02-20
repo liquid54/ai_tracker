@@ -9,42 +9,87 @@ import ScrollableContent from "../components/ScrolableContent";
 import i18n from "@/app/i18n";
 import PDFHandler from "./pdfhandler";
 
-export default function HomePage() {
-    const files = [
-        { id: 1, name: 'File1.doc' },
-        { id: 2, name: 'File2.doc' },
-        // ... rest of the files
-    ];
+interface FileHistory {
+    id: string;
+    name: string;
+    content: string;
+    date: Date;
+}
 
-    const [fileName, setFileName] = useState(i18n.t('mainPage.fileNotSelected'));
+export default function HomePage() {
+    const [fileName, setFileName] = useState('');
     const [extractedText, setExtractedText] = useState('');
-    const { extractTextFromPDF, isLoading } = PDFHandler({
-        onTextExtracted: (text) => setExtractedText(text)
+    const [fileHistory, setFileHistory] = useState<FileHistory[]>([]);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const { extractTextFromPDF } = PDFHandler({
+        onTextExtracted: (text) => {
+            setExtractedText(text);
+            // Add to history only if text was successfully extracted
+            if (text) {
+                addToHistory(fileName, text);
+            }
+        }
     });
+
+    const addToHistory = (name: string, content: string) => {
+        const newFile: FileHistory = {
+            id: Date.now().toString(), // Using timestamp as a simple unique ID
+            name,
+            content,
+            date: new Date()
+        };
+        setFileHistory(prev => [newFile, ...prev]);
+    };
+
+    const removeFromHistory = (id: string) => {
+        setFileHistory(prev => prev.filter(file => file.id !== id));
+    };
+
+    const viewHistoryItem = (content: string) => {
+        setExtractedText(content);
+    };
 
     const handleFileChange = async (event: ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
-        if (file) {
-            setFileName(file.name);
+        if (!file) return;
+
+        setIsLoading(true);
+        try {
             if (file.type === 'application/pdf') {
+                setFileName(file.name); // Оновлюємо на ім'я файлу
                 await extractTextFromPDF(file);
+            } else {
+                setFileName(i18n.t('mainPage.fileNotSupported')); // Якщо файл не PDF
             }
-        } else {
-            setFileName(i18n.t('mainPage.fileNotSelected'));
+        } catch (error) {
+            setFileName(i18n.t('mainPage.fileNotFound')); // Якщо сталася помилка при обробці
+            console.error('File handling error:', error);
+        } finally {
+            setIsLoading(false);
         }
     };
 
-    const ListItem = ({ fileName }: { fileName: string }) => (
+    const ListItem = ({ file }: { file: FileHistory }) => (
         <li>
             <div className="py-2">
                 <div className="flex justify-between items-center p-2 pb-[1px]">
-                    <ThemedText
-                        type="text-medium-grey"
-                        className="truncate max-w-[80%] text-sm sm:text-base"
+                    <button
+                        onClick={() => viewHistoryItem(file.content)}
+                        className="flex flex-col items-start max-w-[80%] hover:bg-gray-50 p-1 rounded"
                     >
-                        {fileName}
-                    </ThemedText>
-                    <button className="p-2 hover:bg-gray-100 rounded-full">
+                        <ThemedText
+                            type="text-medium-grey"
+                            className="truncate w-full text-sm sm:text-base"
+                        >
+                            {file.name}
+                        </ThemedText>
+
+                    </button>
+                    <button
+                        className="p-2 hover:bg-gray-100 rounded-full"
+                        onClick={() => removeFromHistory(file.id)}
+                    >
                         <Bin />
                     </button>
                 </div>
@@ -75,7 +120,7 @@ export default function HomePage() {
                         />
                         <ThemedText
                             type="text-medium-grey"
-                            className="border border-gray-300 rounded-[10px] px-3 sm:px-2 py-[1px] hover:bg-gray-300 hover:text-white w-full sm:w-auto text-center transition-colors text-sm sm:text-base"
+                            className="border border-gray-300 rounded-[10px] px-3 sm:px-2 py-[1px] hover:bg-gray-300 hover:text-white w-full sm:w-auto text-center text-sm sm:text-base"
                         >
                             {i18n.t('mainPage.titleFile')}
                         </ThemedText>
@@ -84,7 +129,7 @@ export default function HomePage() {
                             type="text"
                             className="truncate max-w-[150px] sm:max-w-[200px] text-sm sm:text-base"
                         >
-                            {fileName}
+                            {fileName || i18n.t('mainPage.fileNotSelected')}
                         </ThemedText>
                     </label>
 
@@ -105,8 +150,8 @@ export default function HomePage() {
                         </h3>
                     </div>
                     <ul className="mt-3 sm:mt-4 md:mt-6 max-h-[25vh] sm:max-h-[30vh] md:max-h-[40vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-                        {files.map((file) => (
-                            <ListItem key={file.id} fileName={file.name} />
+                        {fileHistory.map((file) => (
+                            <ListItem key={file.id} file={file} />
                         ))}
                     </ul>
                 </div>
@@ -130,11 +175,15 @@ export default function HomePage() {
                         <div className="space-y-3 sm:space-y-4">
                             {isLoading ? (
                                 <ThemedText type="text" className="text-sm sm:text-base">
-                                    Extracting text from PDF...
+                                    Завантаження файлу
+                                </ThemedText>
+                            ) : extractedText ? (
+                                <ThemedText type="text" className="text-sm sm:text-base whitespace-pre-wrap">
+                                    {extractedText}
                                 </ThemedText>
                             ) : (
-                                <ThemedText type="text" className="text-sm sm:text-base">
-                                    {extractedText || "Upload a PDF file to see its content here"}
+                                <ThemedText type="text" className="text-sm sm:text-base text-center">
+                                    Завантажте файл або оберіть з доступних
                                 </ThemedText>
                             )}
                         </div>
