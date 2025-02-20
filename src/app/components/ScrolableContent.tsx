@@ -25,7 +25,7 @@ const ScrollableContent = ({ children, className = '', autoScroll = false }: Scr
                 [&::-webkit-scrollbar-thumb]:bg-[#0057FF]
                 [&::-webkit-scrollbar-thumb]:rounded-full
                 ${className}
-            `}
+            `.trim()}
         >
             {children}
         </div>
