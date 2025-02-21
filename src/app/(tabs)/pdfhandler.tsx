@@ -6,7 +6,8 @@ import * as pdfjsLib from 'pdfjs-dist';
 import { TextItem } from 'pdfjs-dist/types/src/display/api';
 
 // Initialize PDF.js worker
-pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
+pdfjsLib.GlobalWorkerOptions.workerSrc = `////cdn.jsdelivr.net/npm/pdfjs-dist@latest/build/pdf.worker.min.js
+`;
 
 interface PDFHandlerProps {
     onTextExtracted: (text: string, filename: string) => void;

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/pdfjs-dist": "^2.10.377",
     "docx-preview": "^0.3.4",
     "i18n-js": "^4.5.1",
     "i18next": "^24.2.2",

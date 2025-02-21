@@ -1262,6 +1262,13 @@
   dependencies:
     undici-types "~6.19.2"
 
+"@types/pdfjs-dist@^2.10.377":
+  version "2.10.377"
+  resolved "https://registry.npmjs.org/@types/pdfjs-dist/-/pdfjs-dist-2.10.377.tgz"
+  integrity sha512-RNBWpazVTkC5aiUIIo6d7ojlL0hJSoeQP1QCvTsVLW6qkNEpTALiI0DNGCYAGDfhbL0r17c/zNPQ15lk948UXg==
+  dependencies:
+    pdfjs-dist "*"
+
 "@types/react-dom@^19":
   version "19.0.3"
   resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-19.0.3.tgz"
@@ -3885,7 +3892,7 @@ path2d@^0.2.1:
   resolved "https://registry.npmjs.org/path2d/-/path2d-0.2.2.tgz"
   integrity sha512-+vnG6S4dYcYxZd+CZxzXCNKdELYZSKfohrk98yajCo1PtRoDgCTrrwOvK1GT0UoAdVszagDVllQc0U1vaX4NUQ==
 
-pdfjs-dist@^3.11.174:
+pdfjs-dist@*, pdfjs-dist@^3.11.174:
   version "3.11.174"
   resolved "https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-3.11.174.tgz"
   integrity sha512-TdTZPf1trZ8/UFu5Cx/GXB7GZM30LT+wWUNfsi6Bq8ePLnb+woNKtDymI2mxZYBpMbonNFqKmiz684DIfnd8dA==
