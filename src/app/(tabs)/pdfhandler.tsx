@@ -6,7 +6,7 @@ import * as pdfjsLib from 'pdfjs-dist';
 import { TextItem } from 'pdfjs-dist/types/src/display/api';
 
 // Initialize PDF.js worker
-pdfjsLib.GlobalWorkerOptions.workerSrc = `////cdn.jsdelivr.net/npm/pdfjs-dist@latest/build/pdf.worker.min.js
+pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdn.jsdelivr.net/npm/pdfjs-dist@latest/build/pdf.worker.min.js
 `;
 
 interface PDFHandlerProps {
